@@ -15,7 +15,7 @@ def product_update(sender, created, **kwargs):
     product = kwargs.get('instance')
     if not created:
         print('Product updated')
-        if product.quantity <= constants.NOTIFY_ADMIN_PRODUCT_LIMIT or product.quantity == 0:
+        if product.quantity <= constants.NOTIFY_ADMIN_PRODUCT_LIMIT:
             print("Product Quanity reached the minimum")
             # ToDo Create an async task to notify admin
     return
