@@ -127,15 +127,15 @@ class ProductRequestView(APIView):
         return Response(data, status=_status)
 
 
-class ProductRequestList(generics.ListAPIView):
-    queryset = ProductRequest.objects.filter(is_approved=False)
-    ordering_fields = ['updated_on', 'price']
-
-    @method_decorator(permission_required('product.view_product_request', raise_exception=True))
-    def get(self, request, *args, **kwargs):
-        serializer = ProductSerializer(self.queryset, many=True)
-        page = self.paginate_queryset(serializer.data)
-        return self.get_paginated_response(page)
+# class ProductRequestList(generics.ListAPIView):
+#     queryset = ProductRequest.objects.filter(is_approved=False)
+#     ordering_fields = ['updated_on', 'price']
+#
+#     @method_decorator(permission_required('product.view_product_request', raise_exception=True))
+#     def get(self, request, *args, **kwargs):
+#         serializer = ProductSerializer(self.queryset, many=True)
+#         page = self.paginate_queryset(serializer.data)
+#         return self.get_paginated_response(page)
 
 
 class ApproveProductRequestView(APIView):
