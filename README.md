@@ -35,7 +35,7 @@ Run migrations
 ```sn
 (env)$ python manage.py migrate --settings=sample_ims.settings.dev
 ```
-Create super user
+Create superuser
 
 ```sn
 (env)$ python manage.py createsuperuser --settings=sample_ims.settings.dev
